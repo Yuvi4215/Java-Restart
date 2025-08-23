@@ -1,0 +1,178 @@
+@echo off
+set BASE=C:\Users\Ajay Varma\Desktop\java\Core java\new
+
+rem === Create root ===
+mkdir "%BASE%"
+
+rem === 01 - Basics ===
+mkdir "%BASE%\01-basics\hello-world"
+echo // Java example > "%BASE%\01-basics\hello-world\1.java"
+mkdir "%BASE%\01-basics\variables-and-types"
+echo // Java example > "%BASE%\01-basics\variables-and-types\1.java"
+mkdir "%BASE%\01-basics\operators"
+echo // Java example > "%BASE%\01-basics\operators\1.java"
+
+rem === 02 - Control Flow ===
+mkdir "%BASE%\02-control-flow\if-else"
+echo // Java example > "%BASE%\02-control-flow\if-else\1.java"
+mkdir "%BASE%\02-control-flow\switch"
+echo // Java example > "%BASE%\02-control-flow\switch\1.java"
+
+rem === 03 - Loops ===
+mkdir "%BASE%\03-loops\for-loop"
+echo // Java example > "%BASE%\03-loops\for-loop\1.java"
+mkdir "%BASE%\03-loops\while-loop"
+echo // Java example > "%BASE%\03-loops\while-loop\1.java"
+mkdir "%BASE%\03-loops\do-while-loop"
+echo // Java example > "%BASE%\03-loops\do-while-loop\1.java"
+mkdir "%BASE%\03-loops\enhanced-for-and-break-continue"
+echo // Java example > "%BASE%\03-loops\enhanced-for-and-break-continue\1.java"
+
+rem === 04 - Methods ===
+mkdir "%BASE%\04-methods\method-basics"
+echo // Java example > "%BASE%\04-methods\method-basics\1.java"
+mkdir "%BASE%\04-methods\overloading-and-varargs"
+echo // Java example > "%BASE%\04-methods\overloading-and-varargs\1.java"
+mkdir "%BASE%\04-methods\pass-by-value"
+echo // Java example > "%BASE%\04-methods\pass-by-value\1.java"
+
+rem === 05 - OOP ===
+mkdir "%BASE%\05-oop\classes-and-objects"
+echo // Java example > "%BASE%\05-oop\classes-and-objects\1.java"
+mkdir "%BASE%\05-oop\encapsulation"
+echo // Java example > "%BASE%\05-oop\encapsulation\1.java"
+mkdir "%BASE%\05-oop\inheritance"
+echo // Java example > "%BASE%\05-oop\inheritance\1.java"
+mkdir "%BASE%\05-oop\polymorphism"
+echo // Java example > "%BASE%\05-oop\polymorphism\1.java"
+mkdir "%BASE%\05-oop\abstraction"
+echo // Java example > "%BASE%\05-oop\abstraction\1.java"
+mkdir "%BASE%\05-oop\nested-and-anonymous-classes"
+echo // Java example > "%BASE%\05-oop\nested-and-anonymous-classes\1.java"
+mkdir "%BASE%\05-oop\enums"
+echo // Java example > "%BASE%\05-oop\enums\1.java"
+mkdir "%BASE%\05-oop\records"
+echo // Java example > "%BASE%\05-oop\records\1.java"
+mkdir "%BASE%\05-oop\sealed-classes"
+echo // Java example > "%BASE%\05-oop\sealed-classes\1.java"
+
+rem === 06 - Arrays ===
+mkdir "%BASE%\06-arrays\single-dimensional"
+echo // Java example > "%BASE%\06-arrays\single-dimensional\1.java"
+mkdir "%BASE%\06-arrays\multi-dimensional"
+echo // Java example > "%BASE%\06-arrays\multi-dimensional\1.java"
+mkdir "%BASE%\06-arrays\arrays-class-and-utilities"
+echo // Java example > "%BASE%\06-arrays\arrays-class-and-utilities\1.java"
+
+rem === 07 - Strings ===
+mkdir "%BASE%\07-strings\string-class"
+echo // Java example > "%BASE%\07-strings\string-class\1.java"
+mkdir "%BASE%\07-strings\stringbuilder"
+echo // Java example > "%BASE%\07-strings\stringbuilder\1.java"
+mkdir "%BASE%\07-strings\stringbuffer"
+echo // Java example > "%BASE%\07-strings\stringbuffer\1.java"
+
+rem === 08 - Collections ===
+mkdir "%BASE%\08-collections\list"
+echo // Java example > "%BASE%\08-collections\list\1.java"
+mkdir "%BASE%\08-collections\set"
+echo // Java example > "%BASE%\08-collections\set\1.java"
+mkdir "%BASE%\08-collections\map"
+echo // Java example > "%BASE%\08-collections\map\1.java"
+mkdir "%BASE%\08-collections\queue-and-deque"
+echo // Java example > "%BASE%\08-collections\queue-and-deque\1.java"
+mkdir "%BASE%\08-collections\iterators"
+echo // Java example > "%BASE%\08-collections\iterators\1.java"
+
+rem === 09 - Generics ===
+mkdir "%BASE%\09-generics\generic-classes"
+echo // Java example > "%BASE%\09-generics\generic-classes\1.java"
+mkdir "%BASE%\09-generics\generic-methods"
+echo // Java example > "%BASE%\09-generics\generic-methods\1.java"
+mkdir "%BASE%\09-generics\bounded-types"
+echo // Java example > "%BASE%\09-generics\bounded-types\1.java"
+
+rem === 10 - Exception Handling ===
+mkdir "%BASE%\10-exception-handling\try-catch-finally"
+echo // Java example > "%BASE%\10-exception-handling\try-catch-finally\1.java"
+mkdir "%BASE%\10-exception-handling\throw-and-throws"
+echo // Java example > "%BASE%\10-exception-handling\throw-and-throws\1.java"
+mkdir "%BASE%\10-exception-handling\custom-exceptions"
+echo // Java example > "%BASE%\10-exception-handling\custom-exceptions\1.java"
+
+rem === 11 - Multithreading ===
+mkdir "%BASE%\11-multithreading\thread-class-and-runnable"
+echo // Java example > "%BASE%\11-multithreading\thread-class-and-runnable\1.java"
+mkdir "%BASE%\11-multithreading\synchronization"
+echo // Java example > "%BASE%\11-multithreading\synchronization\1.java"
+mkdir "%BASE%\11-multithreading\concurrency-api"
+echo // Java example > "%BASE%\11-multithreading\concurrency-api\1.java"
+
+rem === 12 - File I/O ===
+mkdir "%BASE%\12-file-io\file-class"
+echo // Java example > "%BASE%\12-file-io\file-class\1.java"
+mkdir "%BASE%\12-file-io\reader-writer"
+echo // Java example > "%BASE%\12-file-io\reader-writer\1.java"
+mkdir "%BASE%\12-file-io\serialization"
+echo // Java example > "%BASE%\12-file-io\serialization\1.java"
+
+rem === 13 - Java 8 Features ===
+mkdir "%BASE%\13-java8-features\lambdas"
+echo // Java example > "%BASE%\13-java8-features\lambdas\1.java"
+mkdir "%BASE%\13-java8-features\functional-interfaces"
+echo // Java example > "%BASE%\13-java8-features\functional-interfaces\1.java"
+mkdir "%BASE%\13-java8-features\streams"
+echo // Java example > "%BASE%\13-java8-features\streams\1.java"
+mkdir "%BASE%\13-java8-features\optional"
+echo // Java example > "%BASE%\13-java8-features\optional\1.java"
+mkdir "%BASE%\13-java8-features\method-references"
+echo // Java example > "%BASE%\13-java8-features\method-references\1.java"
+
+rem === 14 - Java 11+ Features ===
+mkdir "%BASE%\14-java11plus\local-variable-syntax"
+echo // Java example > "%BASE%\14-java11plus\local-variable-syntax\1.java"
+mkdir "%BASE%\14-java11plus\http-client"
+echo // Java example > "%BASE%\14-java11plus\http-client\1.java"
+mkdir "%BASE%\14-java11plus\records"
+echo // Java example > "%BASE%\14-java11plus\records\1.java"
+mkdir "%BASE%\14-java11plus\sealed-classes"
+echo // Java example > "%BASE%\14-java11plus\sealed-classes\1.java"
+
+rem === 15 - Packages and Modules ===
+mkdir "%BASE%\15-packages-and-modules\creating-packages"
+echo // Java example > "%BASE%\15-packages-and-modules\creating-packages\1.java"
+mkdir "%BASE%\15-packages-and-modules\importing-packages"
+echo // Java example > "%BASE%\15-packages-and-modules\importing-packages\1.java"
+mkdir "%BASE%\15-packages-and-modules\modules"
+echo // Java example > "%BASE%\15-packages-and-modules\modules\1.java"
+
+rem === 16 - JDBC ===
+mkdir "%BASE%\16-jdbc\connecting-to-db"
+echo // Java example > "%BASE%\16-jdbc\connecting-to-db\1.java"
+mkdir "%BASE%\16-jdbc\crud-operations"
+echo // Java example > "%BASE%\16-jdbc\crud-operations\1.java"
+mkdir "%BASE%\16-jdbc\preparedstatements-and-transactions"
+echo // Java example > "%BASE%\16-jdbc\preparedstatements-and-transactions\1.java"
+
+rem === 17 - Networking ===
+mkdir "%BASE%\17-networking\sockets"
+echo // Java example > "%BASE%\17-networking\sockets\1.java"
+mkdir "%BASE%\17-networking\httpurlconnection"
+echo // Java example > "%BASE%\17-networking\httpurlconnection\1.java"
+
+rem === 18 - Reflection and Annotations ===
+mkdir "%BASE%\18-reflection-and-annotations\reflection-basics"
+echo // Java example > "%BASE%\18-reflection-and-annotations\reflection-basics\1.java"
+mkdir "%BASE%\18-reflection-and-annotations\custom-annotations"
+echo // Java example > "%BASE%\18-reflection-and-annotations\custom-annotations\1.java"
+
+rem === 19 - Performance and Memory ===
+mkdir "%BASE%\19-performance-and-memory\gc-basics"
+echo // Java example > "%BASE%\19-performance-and-memory\gc-basics\1.java"
+mkdir "%BASE%\19-performance-and-memory\memory-model-and-heap-stack"
+echo // Java example > "%BASE%\19-performance-and-memory\memory-model-and-heap-stack\1.java"
+mkdir "%BASE%\19-performance-and-memory\string-pool-and-interning"
+echo // Java example > "%BASE%\19-performance-and-memory\string-pool-and-interning\1.java"
+
+echo Done! All folders and 1.java files created under "%BASE%"
+pause
