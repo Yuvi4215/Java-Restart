@@ -1,5 +1,5 @@
 /**
- * A demo class for showing enhanced-for (for-each) loop in Java
+ * A demo showing enhanced-for (for-each) loop in Java
  * with examples of break and continue.
  * Covers:
  * 1. Basic enhanced-for loop with array
@@ -72,3 +72,4 @@ public class EnhancedForDemo {
         }
     }
 }
+
