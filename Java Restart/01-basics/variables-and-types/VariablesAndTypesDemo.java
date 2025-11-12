@@ -1,44 +1,50 @@
-
+/**
+ * Demonstration of Java Variables and Data Types
+ * ----------------------------------------------
+ * Covers both primitive and non-primitive (reference) types with examples.
+ */
 public class VariablesAndTypesDemo {
-    public static void main(String[] args) {
-        System.out.println("=== Primitive Data Types ===");
 
-        // 1. byte (8-bit, -128 to 127)
-        byte b1 = 100;               // direct assignment
-        byte b2; b2 = 120;           // declaration then initialization
+    public static void main(String[] args) {
+
+        System.out.println("========= PRIMITIVE DATA TYPES =========");
+
+        // 1. byte (8-bit, range: -128 to 127)
+        byte b1 = 100;                // direct assignment
+        byte b2; b2 = 120;            // declaration then initialization
         System.out.println("byte: " + b1 + ", " + b2);
 
-        // 2. short (16-bit, -32,768 to 32,767)
-        short s1 = 30000;
-        short s2; s2 = -12345;
+        // 2. short (16-bit, range: -32,768 to 32,767)
+        short s1 = 30_000;
+        short s2 = -12_345;
         System.out.println("short: " + s1 + ", " + s2);
 
         // 3. int (32-bit, default integer type)
-        int i1 = 100000;
-        int i2 = 0xFF;               // hexadecimal
-        int i3 = 0b1010;             // binary
-        int i4 = 1_000_000;          // underscores for readability
+        int i1 = 100_000;
+        int i2 = 0xFF;                // hexadecimal (255)
+        int i3 = 0b1010;              // binary (10)
+        int i4 = 1_000_000;           // underscores improve readability
         System.out.println("int: " + i1 + ", " + i2 + ", " + i3 + ", " + i4);
 
         // 4. long (64-bit, needs 'L' suffix for literals)
-        long l1 = 10000000000L;      // decimal
-        long l2 = 0xFFFF_FFFFL;      // hex with underscore
+        long l1 = 10_000_000_000L;    // decimal literal
+        long l2 = 0xFFFF_FFFFL;       // hex with underscore
         System.out.println("long: " + l1 + ", " + l2);
 
         // 5. float (32-bit, needs 'f' suffix)
         float f1 = 3.14f;
-        float f2 = (float) 2.718;    // casting double to float
+        float f2 = (float) 2.718;     // explicit cast from double
         System.out.println("float: " + f1 + ", " + f2);
 
-        // 6. double (64-bit, default floating point type)
+        // 6. double (64-bit, default floating-point type)
         double d1 = 3.14159265359;
-        double d2 = 1.2e3;           // scientific notation (1200.0)
+        double d2 = 1.2e3;            // scientific notation (1200.0)
         System.out.println("double: " + d1 + ", " + d2);
 
         // 7. char (16-bit Unicode character)
-        char c1 = 'A';               // single character
-        char c2 = 66;                // ASCII/Unicode value
-        char c3 = '\u03A9';          // Unicode literal (Ω)
+        char c1 = 'A';                // literal character
+        char c2 = 66;                 // ASCII/Unicode value (B)
+        char c3 = '\u03A9';           // Unicode literal (Ω)
         System.out.println("char: " + c1 + ", " + c2 + ", " + c3);
 
         // 8. boolean (true / false)
@@ -46,20 +52,21 @@ public class VariablesAndTypesDemo {
         boolean flag2 = false;
         System.out.println("boolean: " + flag1 + ", " + flag2);
 
-        System.out.println("\n=== Non-Primitive Data Types ===");
 
-        // 9. String
-        String str1 = "Hello World";  // direct assignment
-        String str2 = new String("Hello Again"); // using constructor
+        System.out.println("\n========= NON-PRIMITIVE DATA TYPES =========");
+
+        // 9. String (sequence of characters)
+        String str1 = "Hello World";               // string literal
+        String str2 = new String("Hello Again");   // using constructor (not recommended)
         System.out.println("String: " + str1 + " | " + str2);
 
-        // 10. Arrays
-        int[] arr1 = {1, 2, 3};       // inline initialization
-        int[] arr2 = new int[3];      // fixed size, default values
+        // 10. Arrays (collection of elements of the same type)
+        int[] arr1 = {1, 2, 3};                    // inline initialization
+        int[] arr2 = new int[3];                   // default values (0,0,0)
         arr2[0] = 10; arr2[1] = 20; arr2[2] = 30;
         System.out.println("Array: arr1[0]=" + arr1[0] + ", arr2[1]=" + arr2[1]);
 
-        // 11. Wrapper Classes (reference types for primitives)
+        // 11. Wrapper Classes (object equivalents of primitives)
         Integer intObj = Integer.valueOf(100);
         Double doubleObj = Double.valueOf(3.14);
         Boolean boolObj = Boolean.TRUE;
@@ -80,8 +87,10 @@ public class VariablesAndTypesDemo {
         MAX_VALUE = 999; // can assign only once
         System.out.println("final: PI=" + PI + ", MAX_VALUE=" + MAX_VALUE);
 
-        // 15. null reference
+        // 15. null reference (represents absence of value)
         String nullStr = null;
         System.out.println("null String reference: " + nullStr);
+
+        System.out.println("\n========= END OF DEMO =========");
     }
 }
