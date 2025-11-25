@@ -2,61 +2,103 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * MULTI-DIMENSIONAL ARRAYS
- * ------------------------
- * - A 2D array is an array of arrays.
- * - Each "row" can contain another array (which may vary in size).
+ * =============================================================================
+ *                       MULTI-DIMENSIONAL ARRAYS IN JAVA
+ * =============================================================================
+ *
+ * A multi-dimensional array is simply an array whose elements are themselves
+ * arrays. Java supports N-dimensional arrays (2D, 3D, ...), and each dimension
+ * can have variable length (also known as "jagged" or "ragged" arrays).
+ *
+ * Why Multi-Dimensional Arrays?
+ * ------------------------------
+ * ✔ Represent tabular data (rows/columns)  
+ * ✔ Store matrices (math/ML problems)  
+ * ✔ Create board games (chess, sudoku)  
+ * ✔ Model grids, pixels, maps, coordinates  
  *
  * Topics Covered:
- * 1. Declaring & Initializing 2D Arrays
- * 2. Traversing with Nested Loops
- * 3. Arrays.deepToString()
- * 4. User Input Example
- * 5. Jagged Arrays
- * 6. 3D Arrays (Bonus)
+ * ----------------
+ * 1.  What is a 2D Array?
+ * 2.  Declaration & Initialization Methods
+ * 3.  Traversing 2D Arrays (Nested Loops & Enhanced For)
+ * 4.  Arrays.deepToString() vs Arrays.toString()
+ * 5.  Taking User Input (Dynamic Matrix)
+ * 6.  Jagged Arrays (Unequal Row Sizes)
+ * 7.  Default Values in Multi-D Arrays
+ * 8.  Edge Cases & Best Practices
+ * 9.  3D Arrays (Bonus)
+ * 10. Memory Representation (How JVM Stores Them)
+ *
+ * Each section is demonstrated with code + explanation.
  */
-
 public class MultiDimensionalArray {
 
-    /** ==========================================
-     *  1. Declaration & Initialization
-     * ========================================== */
-    static void declarationAndInitialization() {
-        System.out.println("------------------------------------");
-        System.out.println("* 1. Declaration & Initialization *");
+    /* =========================================================================
+     * 1. WHAT IS A 2D ARRAY?
+     * =========================================================================
+     * A 2D array = array of arrays.
+     *
+     * Example Layout:
+     *      int[][] arr = {
+     *          {1, 2, 3},
+     *          {4, 5, 6}
+     *      };
+     *
+     * Visually:
+     *      Row0 → [1, 2, 3]
+     *      Row1 → [4, 5, 6]
+     *
+     * NOTE:
+     * Java does NOT store these in a continuous block.
+     * Each row is a separate array → gives flexibility for jagged arrays.
+     */
 
-        // Method 1: Static initialization
+    /* =========================================================================
+     * 2. DECLARATION & INITIALIZATION
+     * ========================================================================= */
+    static void declarationAndInitialization() {
+        System.out.println("--------------------------------------------------");
+        System.out.println("* 2. Declaration & Initialization *\n");
+
+        // Method 1: Static initialization (recommended for fixed data)
         int[][] matrix1 = {
-            {1, 2, 3},
-            {4, 5, 6},
-            {7, 8, 9}
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
         };
 
         // Method 2: Dynamic initialization
-        int[][] matrix2 = new int[2][3]; // 2 rows, 3 columns
+        int[][] matrix2 = new int[3][3]; // Allocates 3 rows × 3 columns
         matrix2[0][0] = 10;
-        matrix2[0][1] = 20;
-        matrix2[1][2] = 30;
+        matrix2[1][1] = 20;
+        matrix2[2][2] = 30;
 
-        // Print using Arrays.deepToString()
-        System.out.println("Matrix 1: " + Arrays.deepToString(matrix1));
-        System.out.println("Matrix 2: " + Arrays.deepToString(matrix2));
+        // Method 3: Only rows known (used in jagged arrays)
+        int[][] matrix3 = new int[3][]; // columns will be assigned later
+        matrix3[0] = new int[]{5, 6};
+        matrix3[1] = new int[]{7, 8, 9};
+        matrix3[2] = new int[]{10};
+
+        System.out.println("Matrix 1 (static): " + Arrays.deepToString(matrix1));
+        System.out.println("Matrix 2 (dynamic): " + Arrays.deepToString(matrix2));
+        System.out.println("Matrix 3 (partial init - jagged): " + Arrays.deepToString(matrix3));
     }
 
-    /** ==========================================
-     *  2. Traversing with Nested Loops
-     * ========================================== */
+    /* =========================================================================
+     * 3. TRAVERSING WITH LOOPS (NESTED + ENHANCED FOR)
+     * ========================================================================= */
     static void traversingWithLoops() {
-        System.out.println("\n------------------------------------");
-        System.out.println("* 2. Traversing with Nested Loops *");
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("* 3. Traversing a 2D Array *\n");
 
         int[][] matrix = {
-            {11, 22, 33},
-            {44, 55, 66},
-            {77, 88, 99}
+                {11, 22, 33},
+                {44, 55, 66},
+                {77, 88, 99}
         };
 
-        System.out.println("Formatted Matrix Output:");
+        System.out.println("Using Nested For-Loops:");
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 System.out.print(matrix[i][j] + " ");
@@ -64,7 +106,7 @@ public class MultiDimensionalArray {
             System.out.println();
         }
 
-        System.out.println("\nEnhanced For Loop:");
+        System.out.println("\nUsing Enhanced For-Loop:");
         for (int[] row : matrix) {
             for (int val : row) {
                 System.out.print(val + " ");
@@ -73,96 +115,121 @@ public class MultiDimensionalArray {
         }
     }
 
-    /** ==========================================
-     *  3. Using Arrays.deepToString()
-     * ========================================== */
+    /* =========================================================================
+     * 4. Arrays.deepToString()
+     * =========================================================================
+     * Arrays.toString() → NOT suitable for multi-dimensional arrays
+     * Arrays.deepToString() → prints nested structures fully
+     */
     static void deepToStringDemo() {
-        System.out.println("\n------------------------------------");
-        System.out.println("* 3. Using Arrays.deepToString() *");
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("* 4. Arrays.deepToString() *\n");
 
-        String[][] names = {
-            {"Alice", "Bob"},
-            {"Charlie", "Diana"},
-            {"Eve", "Frank"}
+        String[][] data = {
+                {"Alice", "Bob"},
+                {"Charlie", "Diana"},
+                {"Eve", "Frank"}
         };
 
-        System.out.println("2D String Array:");
-        System.out.println(Arrays.deepToString(names));
+        System.out.println("Deep Print: " + Arrays.deepToString(data));
     }
 
-    /** ==========================================
-     *  4. User Input Example (2x2 Matrix)
-     * ========================================== */
+    /* =========================================================================
+     * 5. USER INPUT EXAMPLE (DYNAMIC MATRIX)
+     * ========================================================================= */
     static void userInputExample() {
-        System.out.println("\n------------------------------------");
-        System.out.println("* 4. User Input Example (2x2 Matrix) *");
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("* 5. User Input Example (2x2 Matrix) *\n");
 
         Scanner sc = new Scanner(System.in);
         int[][] matrix = new int[2][2];
 
         System.out.println("Enter 4 numbers for a 2x2 matrix:");
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
                 matrix[i][j] = sc.nextInt();
             }
         }
 
-        System.out.println("You entered:");
+        System.out.println("Matrix Entered:");
         for (int[] row : matrix) {
-            for (int num : row) {
-                System.out.print(num + " ");
-            }
-            System.out.println();
+            System.out.println(Arrays.toString(row));
         }
-        System.out.println("Matrix as String: " + Arrays.deepToString(matrix));
+
+        System.out.println("Deep String: " + Arrays.deepToString(matrix));
     }
 
-    /** ==========================================
-     *  5. Jagged Arrays (Unequal Rows)
-     * ========================================== */
+    /* =========================================================================
+     * 6. JAGGED ARRAYS (UNEQUAL ROW LENGTHS)
+     * ========================================================================= */
     static void jaggedArrayDemo() {
-        System.out.println("\n------------------------------------");
-        System.out.println("* 5. Jagged Arrays (Unequal Rows) *");
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("* 6. Jagged Arrays (Unequal Rows) *\n");
 
-        int[][] jagged = new int[3][];
-        jagged[0] = new int[]{1, 2};
-        jagged[1] = new int[]{3, 4, 5};
-        jagged[2] = new int[]{6, 7, 8, 9};
+        int[][] jagged = new int[4][]; // Only row count fixed
 
-        System.out.println("Jagged Array using deepToString:");
-        System.out.println(Arrays.deepToString(jagged));
+        jagged[0] = new int[]{1};
+        jagged[1] = new int[]{2, 3};
+        jagged[2] = new int[]{4, 5, 6};
+        jagged[3] = new int[]{7, 8, 9, 10};
 
-        System.out.println("Formatted output:");
+        System.out.println("Jagged Array (deep print): " + Arrays.deepToString(jagged));
+
+        System.out.println("\nFormatted Output:");
         for (int[] row : jagged) {
-            for (int n : row) {
-                System.out.print(n + " ");
-            }
+            for (int n : row) System.out.print(n + " ");
             System.out.println();
         }
     }
 
-    /** ==========================================
-     *  6. 3D Arrays (Bonus)
-     * ========================================== */
+    /* =========================================================================
+     * 7. DEFAULT VALUES & EDGE CASES
+     * =========================================================================
+     *
+     * Default Values:
+     *  int[][] arr = new int[3][4];
+     *
+     * → All elements = 0 (for int)
+     *
+     * Other types:
+     *  boolean → false
+     *  char → '\u0000'
+     *  Objects → null
+     *
+     * Edge Cases:
+     *  - Accessing arr[i][j] when arr[i] is null → NullPointerException
+     *  - Jagged arrays may have different row sizes → always check row length
+     */
+    static void defaultValuesDemo() {
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("* 7. Default Values Demo *\n");
+
+        int[][] arr = new int[3][4]; // all values = 0
+        System.out.println("3x4 matrix default values:");
+        System.out.println(Arrays.deepToString(arr));
+    }
+
+    /* =========================================================================
+     * 8. 3D ARRAYS (BONUS SECTION)
+     * ========================================================================= */
     static void threeDimensionalArray() {
-        System.out.println("\n------------------------------------");
-        System.out.println("* 6. 3D Arrays (Bonus) *");
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("* 8. 3D Arrays (Bonus) *\n");
 
         int[][][] cube = {
-            {
-                {1, 2, 3},
-                {4, 5, 6}
-            },
-            {
-                {7, 8, 9},
-                {10, 11, 12}
-            }
+                {
+                        {1, 2, 3},
+                        {4, 5, 6}
+                },
+                {
+                        {7, 8, 9},
+                        {10, 11, 12}
+                }
         };
 
-        System.out.println("3D Array using Arrays.deepToString():");
-        System.out.println(Arrays.deepToString(cube));
+        System.out.println("3D Array (deep print): " + Arrays.deepToString(cube));
 
-        System.out.println("Iterating through 3D array:");
+        System.out.println("\nIterating 3D array:");
         for (int[][] matrix : cube) {
             for (int[] row : matrix) {
                 for (int val : row) {
@@ -170,24 +237,26 @@ public class MultiDimensionalArray {
                 }
                 System.out.println();
             }
-            System.out.println("--- Layer End ---");
+            System.out.println("-- Layer End --");
         }
     }
 
-    /** ==========================================
-     *  Main Method - Demo
-     * ========================================== */
+    /* =========================================================================
+     * MAIN METHOD
+     * ========================================================================= */
     public static void main(String[] args) {
-        System.out.println("=== Java Multi-Dimensional Arrays Demo ===\n");
+
+        System.out.println("=========== JAVA MULTI-DIMENSIONAL ARRAY DEMO ==========\n");
 
         declarationAndInitialization();
         traversingWithLoops();
         deepToStringDemo();
-
-        // For user input section, uncomment if running interactively
+        // Uncomment if running interactively
         // userInputExample();
-
         jaggedArrayDemo();
+        defaultValuesDemo();
         threeDimensionalArray();
+
+        System.out.println("\n===================== END OF DEMO ======================");
     }
 }
